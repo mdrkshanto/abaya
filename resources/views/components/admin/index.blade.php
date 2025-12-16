@@ -6,13 +6,13 @@
         </a>
 
         <ul class="sidebar-nav">
-            <li class="sidebar-item active">
+            <li class="sidebar-item{{ request()->routeIs('orders')?' active':null }}">
                 <a href="{{ route('orders') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Orders</span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a href="{{ route('logout') }}" class="sidebar-link">
+            <li class="sidebar-item{{ request()->routeIs('auth.info')?' active':null }}">
+                <a href="{{ route('auth.info') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="key"></i> <span class="align-middle">Auth</span>
                 </a>
             </li>

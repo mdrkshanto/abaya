@@ -15,9 +15,15 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 
-Route::controller(AdminController::class)->middleware("auth")->group(function () {
-    Route::get('orders', 'orders')->name('orders');
-    Route::get('order/{id}', 'orderView')->name('order');
-    Route::post('change-status/{id}', 'changeStatus')->name('order.status');
+Route::middleware("auth")->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('orders', 'orders')->name('orders');
+        Route::get('order/{id}', 'orderView')->name('order');
+        Route::post('change-status/{id}', 'changeStatus')->name('order.status');
+    });
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('auth', 'getAuthInfo')->name('auth.info');
+        Route::post('update-auth-info', "updateAuthInfo")->name('update.auth.info');
+        Route::any('logout', "logout")->name('logout');
+    });
 });
-Route::any('logout', [AuthController::class, "logout"])->middleware("auth")->name('logout');

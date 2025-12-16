@@ -14,6 +14,11 @@
 <body>
     <form action="{{ route('order.store') }}" method="post">
         <div class="card card-body border-0" style="height: 100vh;">
+            <div class="row justify-content-start" style="margin-top: -16px;">
+                <a class="col-auto btn btn-lg btn-link shadow-none link-primary p-0 border-0" href="">
+                    <i class="bi bi-arrow-left-square-fill"></i>
+                </a>
+            </div>
             @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
                     {{ session('success') }}

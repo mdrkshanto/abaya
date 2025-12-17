@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-12 my-2">
                     <label for="new-password" class="form-label">New Password</label>
-                    <input type="password" class="form-control shadow-none" name="new_password" />
+                    <input type="password" class="form-control shadow-none" name="new_password" id="new-password" />
                     @error('new_password')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror

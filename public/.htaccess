@@ -28,3 +28,9 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# Block access to hidden files (dotfiles)
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
